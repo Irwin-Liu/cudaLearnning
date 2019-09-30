@@ -7,7 +7,7 @@ __global__ void sharedMemoryDemo3( )
   int*    data3 = (int*)&data2[64];
  
   // initialization
-  int id = threadIDx.x;
+  int id = threadIdx.x;
   if (id < 128) {
     data1[id] = 0.0f;
   }

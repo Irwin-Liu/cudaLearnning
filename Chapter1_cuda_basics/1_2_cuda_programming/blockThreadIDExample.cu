@@ -15,6 +15,6 @@ int threadID_x = blockIdx.x * blockDim.x + threadIdx.x; // x direction
 int threadID_y = blockIdx.y * blockDim.y + threadIdx.y; // y direction
 int threadID_z = blockIdx.z * blockDim.z + threadIdx.z; // z direction
 // thread ID in one grid
-int threadID = threadID_x; // 1D
-int threadID = threadID_x + threadID_y * blockDim.x * gridDim.x; // 2D
-int threadID = threadID_x + threadID_y * blockDim.x * gridDim.x + threadID_z * blockDim.x * gridDim.x * blockDim.y * gridDim.y; // 3D
+int threadID = threadIdx.x; // 1D
+int threadID = threadIdx.x + threadIdx.y * blockDim.x * gridDim.x; // 2D
+int threadID = threadIdx.x + threadIdx.y * blockDim.x * gridDim.x + threadIdx.z * blockDim.x * gridDim.x * blockDim.y * gridDim.y; // 3D

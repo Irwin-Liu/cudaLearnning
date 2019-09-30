@@ -1,6 +1,6 @@
 __global__ void globalMemoryDemo1(float* A)
 {
-  int i = threadIDx.x;
+  int i = threadIdx.x;
   A[i] *= 2.0f;
 }
  

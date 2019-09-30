@@ -4,7 +4,7 @@ __global__ void sharedMemoryDemo1( )
   extern __shared__ float shared_data_dynamic[];
   float *data = (float*)shared_data_dynamic;
  
-  int id = threadIDx.x;
+  int id = threadIdx.x;
   data[id] = 0.0f; // initialization
 }
  
@@ -13,7 +13,7 @@ __global__ void sharedMemoryDemo2( )
 {
   __shared__ int shared_data_static[16];
  
-  int id = threadIDx.x;
+  int id = threadIdx.x;
   shared_data_static[id] = 0; // initialization
 }
  
