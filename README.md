@@ -1,2 +1,2 @@
 # cudaLearnning
-examples for cuda learning
+Examples for cuda learning
