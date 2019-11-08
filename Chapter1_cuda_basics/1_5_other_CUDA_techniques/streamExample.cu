@@ -33,7 +33,7 @@ int main(int argc, char** argv)
 
   // release cuda stream
   for (int i = 0; i < 2; i++) {
-    cudaStreamDestroy(&stream[i]);
+    cudaStreamDestroy(stream[i]);
   }
   cudaFree(hostPtr);
 
