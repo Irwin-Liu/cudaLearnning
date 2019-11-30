@@ -4,7 +4,7 @@ __global__ void globalMemoryDemo1(float* A)
   A[i] *= 2.0f;
 }
  
-__global__ void globalMemoryDemo2(float* B, int pitch, int width, int height)
+__global__ void globalMemoryDemo2(float* B, size_t pitch, int width, int height)
 {
   for (int r = 0; r < height; r++) {
     float* row = (float*)((char*)B + r * pitch);
@@ -52,8 +52,9 @@ int main(int argc, char** argv)
   free(h_A);
  
   // 2D array
-  int pitch, width = 32, height = 16;
+  int width = 32, height = 16;
   float *d_B, *d_C;
+  size_t pitch;
  
   cudaMallocPitch((void **)&d_B, &pitch, width * sizeof(float), height); // alloc on GPU global memory
   globalMemoryDemo2<<<1, 1>>>(d_B, pitch, width, height); // start kernel, traverse elements of d_B
